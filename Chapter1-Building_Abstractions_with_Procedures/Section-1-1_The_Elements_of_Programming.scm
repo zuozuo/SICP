@@ -8,7 +8,8 @@
 
 
 ; Exercise 1.3
-; Define a procedure that takes three numbers as arguments and returns the sum of the squares of the two larger numbers.
+; Define a procedure that takes three numbers as arguments and returns the sum 
+; of the squares of the two larger numbers.
 ; 
 (define (square_sum_2_larger_of_3 x y z) 
   (cond ((and (> x y) (> z y)) (+ (* x x) (* z z)))
@@ -21,8 +22,8 @@
 
 
 ; Exercise 1.5 
-; Ben Bitdiddle has invented a test to determine whether the interpreter he is faced with is usingapplicative-order evaluation or normal-order 
-; evaluation. He defines the following two procedures:
+; Ben Bitdiddle has invented a test to determine whether the interpreter he is faced with is 
+; usingapplicative-order evaluation or normal-order evaluation. He defines the following two procedures:
 (define (p) (p))
 (define (test x y)
   (if (= x 0)
@@ -32,14 +33,15 @@
 ;
 ; (test 0 (p))
 ;
-; What behavior will Ben observe with an interpreter that uses applicative-order evaluation? What behavior will he observe with an interpreter 
-; that uses normal-order evaluation? Explain your answer. (Assume that the evaluation rule for the special form if is the same whether the 
-; interpreter is using normal or applicative order: The predicate expression is evaluated first, and the result determines whether to evaluate 
-; the consequent or the alternative expression.)
+; What behavior will Ben observe with an interpreter that uses applicative-order evaluation? 
+; What behavior will he observe with an interpreter that uses normal-order evaluation? 
+; Explain your answer. (Assume that the evaluation rule for the special form if is the same whether the 
+; interpreter is using normal or applicative order: The predicate expression is evaluated first, 
+; and the result determines whether to evaluate the consequent or the alternative expression.)
 
 ; Answer 1.5
-; For an interpreter using applicative-order evaluation the result will be 0, however, for an interpreter doing normal-order evaluation it will 
-; fall in an infinite loop.
+; For an interpreter using applicative-order evaluation the result will be 0, however, 
+; for an interpreter doing normal-order evaluation it will fall in an infinite loop.
 
 
 
