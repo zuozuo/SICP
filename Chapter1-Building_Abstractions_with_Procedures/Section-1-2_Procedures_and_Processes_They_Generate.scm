@@ -10,7 +10,8 @@
 
 
 ; Exercise 1.6. 
-; Alyssa P. Hacker doesn't see whyifneeds to be provided as a special form. ``Why can't I just define it as an ordinary procedure in terms of cond?'' she asks. Alyssa's friend Eva Lu Ator claims this can indeed be done, and she defines a new version of if:
+; Alyssa P. Hacker doesn't see whyifneeds to be provided as a special form. ``Why can't I just define it as an ordinary procedure in terms of 
+; cond?'' she asks. Alyssa's friend Eva Lu Ator claims this can indeed be done, and she defines a new version of if:
 (define (new-if predicate then-clause else-clause)
   (cond (predicate then-clause)
         (else else-clause)))
@@ -47,11 +48,19 @@
 
 (display (sqrt 9))
 ;
-; When you run the code above, you will come across a infinite loop. According to the substitution model for procedure application: To apply a compound procedure to agruments, evaluate the body of the procedure with each formal parameter replaced by the correspinding argument. So when the new-if procedure was called in sqrt-iter with two arguments guess and (sqrt-iter (improve guess x)), the interpreter will firstly evaluate them , when it try to evaluate (sqrt-iter (improve guess x)), problem happens, because sqrt-iter will never return unless new-if return. 
+; When you run the code above, you will come across a infinite loop. According to the substitution model for procedure application: 
+; To apply a compound procedure to agruments, evaluate the body of the procedure with each formal parameter replaced by the correspinding 
+; argument. So when the new-if procedure was called in sqrt-iter with two arguments guess and (sqrt-iter (improve guess x)), the 
+; interpreter will firstly evaluate them , when it try to evaluate (sqrt-iter (improve guess x)), problem happens, because sqrt-iter 
+; will never return unless new-if return. 
 
 
 ; Exercise 1.7
-; The good-enough? test used in computing square roots will not be very effective for finding the square roots of very small numbers. Also, in real computers, arithmetic operations are almost always performed with limited precision. This makes our test inadequate for very large numbers. Explain these statements, with examples showing how the test fails for small and large numbers. An alternative strategy for implementing good-enough? is to watch how guess changes from one iteration to the next and to stop when the change is a very small fraction of the guess. Design a square-root procedure that uses this kind of end test. Does this work better for small and large numbers?
+; The good-enough? test used in computing square roots will not be very effective for finding the square roots of very small numbers. 
+; Also, in real computers, arithmetic operations are almost always performed with limited precision. This makes our test inadequate 
+; for very large numbers. Explain these statements, with examples showing how the test fails for small and large numbers. An alternative 
+; strategy for implementing good-enough? is to watch how guess changes from one iteration to the next and to stop when the change is a 
+; very small fraction of the guess. Design a square-root procedure that uses this kind of end test. Does this work better for small and large numbers?
 (define (good-enough? guess pre_guess) 
   (< (abs (- pre_guess guess)) 0.001))
 (define (sqrt-iter guess pre_guess x) 
